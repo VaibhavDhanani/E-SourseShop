@@ -8,7 +8,7 @@ const MenuItem = ({ title, imageUrl }) => {
           backgroundImage: `url(${imageUrl})`,
           transitionTimingFunction: 'cubic-bezier(0.25, 0.45, 0.45, 0.95)'
         }}
-        className="absolute inset-0 flex justify-center items-end p-4 rounded-lg bg-cover bg-center hover:scale-110 duration-300 hover:transition-transform"
+        className="absolute inset-0 flex justify-center items-end p-4 rounded-lg bg-cover bg-center hover:scale-[1.05] duration-300 hover:transition-transform"
       >
         <div
           className="overlay w-full h-full"

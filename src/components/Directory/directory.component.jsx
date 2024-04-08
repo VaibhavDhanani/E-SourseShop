@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MenuItem from "../components/menuitem.component";
+import MenuItem from "./menuitem.component";
 
 export default class Directory extends Component {
   constructor(props) {
@@ -43,11 +43,11 @@ export default class Directory extends Component {
 
   render() {
     return (
-      <div className="homepage container mx-auto">
+      <div className="homepage container mx-auto my-5">
         <div className="directory-menu">
           <div className="grid grid-cols-3 gap-8 h-[45rem]">
-            {this.state.sections.map(({ title, imageUrl, id }) => (
-              <MenuItem key={id} title={title} imageUrl={imageUrl} />
+            {this.state.sections.map(({id, ...otherProps }) => (
+              <MenuItem key={id} {...otherProps} />
             ))}
           </div>
         </div>
