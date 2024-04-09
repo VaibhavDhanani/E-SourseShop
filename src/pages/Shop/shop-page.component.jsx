@@ -15,8 +15,8 @@ export default class ShopPage extends Component {
     return (
       <div>
         <h3 className="text-gray-600 text-2xl font-medium p-4">Collection</h3>
-        {collections.map(({ title, items }) => (
-          <CollectionPreview title={title} items={items} />
+        {collections.map(({ id,title, items }) => (
+          <CollectionPreview key={id} title={title} items={items} />
         ))}
       </div>
     );

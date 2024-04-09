@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as Cart } from "../../assets/cart.svg";
 import { ReactComponent as Search } from "../../assets/search.svg";
@@ -27,7 +28,9 @@ const Header = ({ currentUser }) => {
           </li>
           {currentUser ? (
             <li className="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-              <Link to="/" onClick={() => auth.signOut()} >SIGN OUT</Link>
+              <Link to="/" onClick={() => auth.signOut()}>
+                SIGN OUT
+              </Link>
             </li>
           ) : (
             <li className="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
@@ -49,4 +52,8 @@ const Header = ({ currentUser }) => {
   );
 };
 
-export default Header;
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+})
+
+export default connect(mapStateToProps)(Header);
