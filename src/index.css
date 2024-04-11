@@ -4,3 +4,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cart-icon {
+  position: absolute;
+  right: 55px;
+  bottom: 11px;
+  font-size: larger;
+  font-weight: 500;
+  color: darkviolet;
+}
