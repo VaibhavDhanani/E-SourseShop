@@ -6,6 +6,7 @@ import {
   selectCartTotalCost,
 } from "../../redux/Cart/cart.selector";
 import CheckoutItem from "./checkout-item.component";
+import StripeCheckoutButton from "../../components/Stripe/stripeButton.component";
 
 const Checkout = ({ cartItems, subTotal }) => {
   let shippingCharge = (subTotal * 0.1).toFixed(2);
@@ -49,28 +50,36 @@ const Checkout = ({ cartItems, subTotal }) => {
                   &#8377;{total}
                 </p>
               </div>
+              <div className="text-center text-base">
+                <p className="text-red-600 font-medium">**Please fill following details** </p>
+                <p className="text-green-600 font-medium"> Card Number: 4242 4242 4242 4242</p>
+                <p className="text-gray-600 font-medium"> Exp : 01/25 </p>
+                <p className="text-gray-600 font-medium"> CVC: 123</p>
+              </div>
 
               <div className="mt-6 text-center">
-                <button
-                  type="button"
-                  className="group inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
-                >
-                  Checkout
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="group-hover:ml-8 ml-4 h-6 w-6 transition-all"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
+                <StripeCheckoutButton price={total}>
+                  {/* <button
+                    type="button"
+                    className="group inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </button>
+                    Checkout
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="group-hover:ml-8 ml-4 h-6 w-6 transition-all"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </button> */}
+                </StripeCheckoutButton>
               </div>
             </div>
           </div>

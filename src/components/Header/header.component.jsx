@@ -1,7 +1,7 @@
 import React from "react";
 import {createStructuredSelector} from "reselect"
 import { connect } from "react-redux";
-import { ReactComponent as Logo } from "../../assets/logo.svg";
+import Logo from "../../assets/e-sourceshop-logo-zip-file/png/logo-no-background.png" 
 import ShoppingCartIcon from "../Cart/cart-icon.component";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase/firebase.util";
@@ -14,7 +14,7 @@ const Header = ({ currentUser, hidden }) => {
     <header className="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02 z-10">
       <h1 className="w-3/12">
         <Link to="/">
-          <Logo />
+          <img src={Logo} className="h-12" />
         </Link>
       </h1>
 
