@@ -10,7 +10,7 @@ const CollectionItem = ({ item, addItem }) => {
         <div className="relative group">
           <div className="absolute inset-0 bg-gray-500 opacity-0 group-hover:opacity-50 transition-opacity"></div>
           <div
-            className="flex items-end justify-end h-56 w-full bg-cover"
+            className="flex items-end justify-end h-56 w-full bg-cover bg-center"
             style={{
               backgroundImage: `url(${imageUrl})`,
             }}

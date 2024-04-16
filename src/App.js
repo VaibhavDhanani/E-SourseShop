@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { HomePage } from "./pages/Home/homepage.component";
-import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import ShopPage from "./pages/Shop/shop-page.component";
 import Header from "../src/components/Header/header.component";
 import SignInUpPage from "./pages/SignInUpPage/sign-in-up-page";
@@ -12,14 +12,9 @@ import {
 import { onSnapshot } from "firebase/firestore";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/User/user.actions";
+import Checkout from "./pages/Checkout/checkout.component";
 
 class App extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     currentUser: null,
-  //   };
-  // }
   unsubscribe = null;
   componentDidMount() {
     const { setCurrentUser } = this.props;
@@ -44,21 +39,22 @@ class App extends Component {
   }
 
   render() {
-    const {currentUser} = this.props
+    const { currentUser } = this.props;
     return (
       <div>
         <Header />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/shop" element={<ShopPage />} />
-          <Route exact path="/sign-in-up" 
-            element={currentUser ? (
-              <Navigate replace to="/" />
-            ) : (
-              <SignInUpPage />
-            )}
-            />
-          <Route path="*" element={<Navigate replace to="/" />} />
+          <Route exact path="/shop/*" element={<ShopPage />} />
+          <Route exact path="/checkout" element={<Checkout />} />
+          <Route
+            exact
+            path="/sign-in-up"
+            element={
+              currentUser ? <Navigate replace to="/" /> : <SignInUpPage />
+            }
+          />
+          {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
         </Routes>
       </div>
     );
